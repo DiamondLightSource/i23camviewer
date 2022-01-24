@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>I23Cams</class>
+ <widget class="QMainWindow" name="I23Cams">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1151</width>
+    <height>1156</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>I23 Cam Viewer</string>
+  </property>
+  <property name="tabShape">
+   <enum>QTabWidget::Rounded</enum>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QGridLayout" name="gridLayout_3">
+    <item row="0" column="0">
+     <widget class="QTabWidget" name="tabWidget">
+      <property name="sizeIncrement">
+       <size>
+        <width>1</width>
+        <height>1</height>
+       </size>
+      </property>
+      <property name="tabPosition">
+       <enum>QTabWidget::West</enum>
+      </property>
+      <property name="tabShape">
+       <enum>QTabWidget::Triangular</enum>
+      </property>
+      <property name="currentIndex">
+       <number>1</number>
+      </property>
+      <property name="elideMode">
+       <enum>Qt::ElideNone</enum>
+      </property>
+      <property name="tabBarAutoHide">
+       <bool>false</bool>
+      </property>
+      <widget class="QWidget" name="maincams">
+       <attribute name="title">
+        <string>Main Cams</string>
+       </attribute>
+       <layout class="QGridLayout" name="gridLayout_4">
+        <item row="0" column="0">
+         <layout class="QVBoxLayout" name="verticalLayout">
+          <item>
+           <widget class="QWebEngineView" name="webEngineView">
+            <property name="url">
+             <url>
+              <string>http://bl23i-di-serv-02.diamond.ac.uk:8080/ECAM6.mjpg.mjpg</string>
+             </url>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QWebEngineView" name="webEngineView_2">
+            <property name="url">
+             <url>
+              <string>http://bl23i-di-serv-01.diamond.ac.uk:8080/ECAM10.mjpg.mjpg</string>
+             </url>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="extracams">
+       <attribute name="title">
+        <string>Extra Cams</string>
+       </attribute>
+       <layout class="QGridLayout" name="gridLayout_2">
+        <item row="0" column="0">
+         <layout class="QGridLayout" name="gridLayout">
+          <item row="1" column="1">
+           <widget class="QWebEngineView" name="webEngineView_4">
+            <property name="url">
+             <url>
+              <string>http://bl23i-di-serv-01.diamond.ac.uk:8080/ECAM9.mjpg.mjpg</string>
+             </url>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="0">
+           <widget class="QWebEngineView" name="webEngineView_6">
+            <property name="url">
+             <url>
+              <string>http://bl23i-di-serv-02.diamond.ac.uk:8080/ECAM7.mjpg.mjpg</string>
+             </url>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="0">
+           <widget class="QWebEngineView" name="webEngineView_5">
+            <property name="url">
+             <url>
+              <string>http://bl23i-di-serv-02.diamond.ac.uk:8080/ECAM3.mjpg.mjpg</string>
+             </url>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1">
+           <widget class="QWebEngineView" name="webEngineView_3">
+            <property name="url">
+             <url>
+              <string>http://bl23i-di-serv-02.diamond.ac.uk:8080/ECAM5.mjpg.mjpg</string>
+             </url>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QStatusBar" name="statusbar">
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
+  </widget>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>QWebEngineView</class>
+   <extends>QWidget</extends>
+   <header location="global">QtWebEngineWidgets/QWebEngineView</header>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>

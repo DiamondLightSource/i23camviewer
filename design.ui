@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1151</width>
-    <height>1156</height>
+    <width>716</width>
+    <height>1219</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -26,6 +26,12 @@
         <height>1</height>
        </size>
       </property>
+      <property name="toolTip">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Switch views between the main cameras for daily operation, extra cameras for troubleshooting and diagnostic cameras for... diagnostics.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+      <property name="autoFillBackground">
+       <bool>false</bool>
+      </property>
       <property name="tabPosition">
        <enum>QTabWidget::West</enum>
       </property>
@@ -33,7 +39,7 @@
        <enum>QTabWidget::Triangular</enum>
       </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>0</number>
       </property>
       <property name="elideMode">
        <enum>Qt::ElideNone</enum>
@@ -41,7 +47,7 @@
       <property name="tabBarAutoHide">
        <bool>false</bool>
       </property>
-      <widget class="QWidget" name="maincams">
+      <widget class="QWidget" name="mainCams">
        <attribute name="title">
         <string>Main Cams</string>
        </attribute>
@@ -49,16 +55,7 @@
         <item row="0" column="0">
          <layout class="QVBoxLayout" name="verticalLayout">
           <item>
-           <widget class="QWebEngineView" name="webEngineView">
-            <property name="url">
-             <url>
-              <string>http://bl23i-di-serv-02.diamond.ac.uk:8080/ECAM6.mjpg.mjpg</string>
-             </url>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QWebEngineView" name="webEngineView_2">
+           <widget class="QWebEngineView" name="gonioView">
             <property name="url">
              <url>
               <string>http://bl23i-di-serv-01.diamond.ac.uk:8080/ECAM10.mjpg.mjpg</string>
@@ -66,11 +63,47 @@
             </property>
            </widget>
           </item>
+          <item>
+           <widget class="QWebEngineView" name="gripperView">
+            <property name="autoFillBackground">
+             <bool>false</bool>
+            </property>
+            <property name="url">
+             <url>
+              <string>http://bl23i-di-serv-02.diamond.ac.uk:8080/ECAM6.mjpg.mjpg</string>
+             </url>
+            </property>
+           </widget>
+          </item>
          </layout>
+        </item>
+        <item row="1" column="0">
+         <widget class="QWebEngineView" name="frontView">
+          <property name="enabled">
+           <bool>true</bool>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>500</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>800</height>
+           </size>
+          </property>
+          <property name="url">
+           <url>
+            <string>http://bl23i-di-serv-02.diamond.ac.uk:8080/ECAM7.mjpg.mjpg</string>
+           </url>
+          </property>
+         </widget>
         </item>
        </layout>
       </widget>
-      <widget class="QWidget" name="extracams">
+      <widget class="QWidget" name="extraCams">
        <attribute name="title">
         <string>Extra Cams</string>
        </attribute>
@@ -78,7 +111,10 @@
         <item row="0" column="0">
          <layout class="QGridLayout" name="gridLayout">
           <item row="1" column="1">
-           <widget class="QWebEngineView" name="webEngineView_4">
+           <widget class="QWebEngineView" name="hotelView">
+            <property name="toolTip">
+             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Hotel camera&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            </property>
             <property name="url">
              <url>
               <string>http://bl23i-di-serv-01.diamond.ac.uk:8080/ECAM9.mjpg.mjpg</string>
@@ -87,16 +123,22 @@
            </widget>
           </item>
           <item row="1" column="0">
-           <widget class="QWebEngineView" name="webEngineView_6">
+           <widget class="QWebEngineView" name="OAV">
+            <property name="toolTip">
+             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;OAV camera&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            </property>
             <property name="url">
              <url>
-              <string>http://bl23i-di-serv-02.diamond.ac.uk:8080/ECAM7.mjpg.mjpg</string>
+              <string>http://bl23i-di-serv-02.diamond.ac.uk:8080/OAV.mjpg.mjpg</string>
              </url>
             </property>
            </widget>
           </item>
           <item row="0" column="0">
-           <widget class="QWebEngineView" name="webEngineView_5">
+           <widget class="QWebEngineView" name="outboardView">
+            <property name="toolTip">
+             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Outboard camera&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            </property>
             <property name="url">
              <url>
               <string>http://bl23i-di-serv-02.diamond.ac.uk:8080/ECAM3.mjpg.mjpg</string>
@@ -105,7 +147,13 @@
            </widget>
           </item>
           <item row="0" column="1">
-           <widget class="QWebEngineView" name="webEngineView_3">
+           <widget class="QWebEngineView" name="inboardView">
+            <property name="toolTip">
+             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Inboard camera&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            </property>
+            <property name="autoFillBackground">
+             <bool>false</bool>
+            </property>
             <property name="url">
              <url>
               <string>http://bl23i-di-serv-02.diamond.ac.uk:8080/ECAM5.mjpg.mjpg</string>
@@ -117,14 +165,53 @@
         </item>
        </layout>
       </widget>
+      <widget class="QWidget" name="diagnosticCams">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
+       <attribute name="title">
+        <string>Diagnostic Cams</string>
+       </attribute>
+       <layout class="QVBoxLayout" name="verticalLayout_3">
+        <item>
+         <layout class="QVBoxLayout" name="verticalLayout_2">
+          <item>
+           <widget class="QWebEngineView" name="d1">
+            <property name="toolTipDuration">
+             <number>-1</number>
+            </property>
+            <property name="url">
+             <url>
+              <string>http://bl23i-di-serv-03.diamond.ac.uk:8082/D1.CAM.mjpg.mjpg</string>
+             </url>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QWebEngineView" name="d2">
+            <property name="url">
+             <url>
+              <string>http://bl23i-di-serv-03.diamond.ac.uk:8082/D2.CAM.mjpg.mjpg</string>
+             </url>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QWebEngineView" name="d3">
+            <property name="url">
+             <url>
+              <string>http://bl23i-di-serv-03.diamond.ac.uk:8082/D3.CAM.mjpg.mjpg</string>
+             </url>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </widget>
      </widget>
     </item>
    </layout>
-  </widget>
-  <widget class="QStatusBar" name="statusbar">
-   <property name="autoFillBackground">
-    <bool>false</bool>
-   </property>
   </widget>
  </widget>
  <customwidgets>

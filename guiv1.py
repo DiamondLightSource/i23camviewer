@@ -5,7 +5,7 @@ import cothread
 import subprocess
 
 def startRedServer():
-    subprocess.Popen(["/dls/science/groups/i23/pyenvs/i23camsconda/bin/python", "redServer.py"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    subprocess.Popen(["/dls/science/groups/i23/pyenvs/i23camsconda/bin/python", "/dls/science/groups/i23/scripts/chris/i23_cam_viewer/redServer.py"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 class LiveCheckThread(QtCore.QThread):
     updateStatus = QtCore.pyqtSignal(str, bool, str)
 
@@ -13,8 +13,8 @@ class LiveCheckThread(QtCore.QThread):
         super().__init__()
         self.camlib = {
             "frontView": ("BL23I-DI-CAM-07:CAM:ArrayRate_RBV", "http://bl23i-di-serv-02.diamond.ac.uk:8080/ECAM7.mjpg.mjpg"),
-            "gonioView": ("BL23I-DI-CAM-06:CAM:ArrayRate_RBV", "http://bl23i-di-serv-01.diamond.ac.uk:8080/ECAM10.mjpg.mjpg"),
-            "gripperView": ("BL23I-DI-CAM-10:CAM:ArrayRate_RBV", "http://bl23i-di-serv-02.diamond.ac.uk:8080/ECAM6.mjpg.mjpg"),
+            "gonioView": ("BL23I-DI-CAM-06:CAM:ArrayRate_RBV", "http://bl23i-di-serv-02.diamond.ac.uk:8080/ECAM6.mjpg.mjpg"),
+            "gripperView": ("BL23I-DI-CAM-10:CAM:ArrayRate_RBV", "http://bl23i-di-serv-01.diamond.ac.uk:8080/ECAM10.mjpg.mjpg"),
             "OAV": ("BL23I-DI-OAV-01:CAM:ArrayRate_RBV", "http://bl23i-di-serv-02.diamond.ac.uk:8080/OAV.mjpg.mjpg"),
             "hotelView": ("BL23I-DI-CAM-09:CAM:ArrayRate_RBV", "http://bl23i-di-serv-01.diamond.ac.uk:8080/ECAM9.mjpg.mjpg"),
             "inboardView": ("BL23I-DI-CAM-05:CAM:ArrayRate_RBV", "http://bl23i-di-serv-02.diamond.ac.uk:8080/ECAM5.mjpg.mjpg"),
@@ -62,18 +62,18 @@ class Ui_I23Cams(object):
         self.gridLayout_4.setObjectName("gridLayout_4")
         self.verticalLayout = QtWidgets.QVBoxLayout()
         self.verticalLayout.setObjectName("verticalLayout")
-        
-        self.gonioView = QtWebEngineWidgets.QWebEngineView(self.mainCams)
-        self.gonioView.setUrl(QtCore.QUrl("http://bl23i-di-serv-01.diamond.ac.uk:8080/ECAM10.mjpg.mjpg"))
-        self.gonioView.setObjectName("gonioView")
-        self.verticalLayout.addWidget(self.gonioView)
+    
         
         self.gripperView = QtWebEngineWidgets.QWebEngineView(self.mainCams)
         self.gripperView.setAutoFillBackground(False)
-        self.gripperView.setUrl(QtCore.QUrl("http://bl23i-di-serv-02.diamond.ac.uk:8080/ECAM6.mjpg.mjpg"))
+        self.gripperView.setUrl(QtCore.QUrl("http://bl23i-di-serv-01.diamond.ac.uk:8080/ECAM10.mjpg.mjpg"))
         self.gripperView.setObjectName("gripperView")
         self.verticalLayout.addWidget(self.gripperView)
-        
+
+        self.gonioView = QtWebEngineWidgets.QWebEngineView(self.mainCams)
+        self.gonioView.setUrl(QtCore.QUrl("http://bl23i-di-serv-02.diamond.ac.uk:8080/ECAM6.mjpg.mjpg"))
+        self.gonioView.setObjectName("gonioView")
+        self.verticalLayout.addWidget(self.gonioView)        
         self.gridLayout_4.addLayout(self.verticalLayout, 0, 0, 1, 1)
         
         self.frontView = QtWebEngineWidgets.QWebEngineView(self.mainCams)

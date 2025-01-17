@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>716</width>
-    <height>1219</height>
+    <width>722</width>
+    <height>854</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -53,9 +53,60 @@
        </attribute>
        <layout class="QGridLayout" name="gridLayout_4">
         <item row="0" column="0">
-         <layout class="QVBoxLayout" name="verticalLayout">
+         <layout class="QVBoxLayout" name="verticalLayout" stretch="0,0,0">
+          <property name="sizeConstraint">
+           <enum>QLayout::SetDefaultConstraint</enum>
+          </property>
           <item>
-           <widget class="QWebEngineView" name="gonioView">
+           <widget class="QWebEngineView" name="frontView">
+            <property name="enabled">
+             <bool>true</bool>
+            </property>
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="MinimumExpanding" vsizetype="MinimumExpanding">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>200</width>
+              <height>200</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>16777215</height>
+             </size>
+            </property>
+            <property name="baseSize">
+             <size>
+              <width>0</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="url">
+             <url>
+              <string>http://bl23i-di-serv-02.diamond.ac.uk:8080/ECAM7.mjpg.mjpg</string>
+             </url>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QWebEngineView" name="gripperView">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="MinimumExpanding" vsizetype="MinimumExpanding">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>300</width>
+              <height>300</height>
+             </size>
+            </property>
             <property name="url">
              <url>
               <string>http://bl23i-di-serv-01.diamond.ac.uk:8080/ECAM10.mjpg.mjpg</string>
@@ -64,7 +115,19 @@
            </widget>
           </item>
           <item>
-           <widget class="QWebEngineView" name="gripperView">
+           <widget class="QWebEngineView" name="gonioView">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="MinimumExpanding" vsizetype="MinimumExpanding">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>300</width>
+              <height>300</height>
+             </size>
+            </property>
             <property name="autoFillBackground">
              <bool>false</bool>
             </property>
@@ -76,30 +139,6 @@
            </widget>
           </item>
          </layout>
-        </item>
-        <item row="1" column="0">
-         <widget class="QWebEngineView" name="frontView">
-          <property name="enabled">
-           <bool>true</bool>
-          </property>
-          <property name="minimumSize">
-           <size>
-            <width>0</width>
-            <height>500</height>
-           </size>
-          </property>
-          <property name="maximumSize">
-           <size>
-            <width>16777215</width>
-            <height>800</height>
-           </size>
-          </property>
-          <property name="url">
-           <url>
-            <string>http://bl23i-di-serv-02.diamond.ac.uk:8080/ECAM7.mjpg.mjpg</string>
-           </url>
-          </property>
-         </widget>
         </item>
        </layout>
       </widget>

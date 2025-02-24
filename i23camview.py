@@ -1,5 +1,5 @@
 #!/usr/bin/env /dls_sw/i23/scripts/ctrl_conda/bin/python
-from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt5 import QtCore, QtWidgets
 from PyQt5 import QtWebEngineWidgets
 
 

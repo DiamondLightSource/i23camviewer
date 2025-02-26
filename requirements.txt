@@ -1,0 +1,4 @@
+cothread
+opencv-python-headless
+pyqt5
+pyqtwebengine

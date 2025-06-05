@@ -12,16 +12,16 @@ class LiveCheckThread(QtCore.QThread):
     def __init__(self):
         super().__init__()
         self.camlib = {
-            "frontView": ("BL23I-DI-CAM-07:CAM:ArrayRate_RBV", "http://bl23i-di-serv-02.diamond.ac.uk:8080/ECAM7.mjpg.mjpg"),
-            "gonioView": ("BL23I-DI-CAM-06:CAM:ArrayRate_RBV", "http://bl23i-di-serv-02.diamond.ac.uk:8080/ECAM6.mjpg.mjpg"),
+            "frontView": ("BL23I-DI-CAM-07:CAM:ArrayRate_RBV", "http://bl23i-di-serv-04.diamond.ac.uk:8080/ECAM7.mjpg.mjpg"),
+            "gonioView": ("BL23I-DI-CAM-06:CAM:ArrayRate_RBV", "http://bl23i-di-serv-04.diamond.ac.uk:8080/ECAM6.mjpg.mjpg"),
             "gripperView": ("BL23I-DI-CAM-10:CAM:ArrayRate_RBV", "http://bl23i-di-serv-01.diamond.ac.uk:8080/ECAM10.mjpg.mjpg"),
-            "OAV": ("BL23I-DI-OAV-01:CAM:ArrayRate_RBV", "http://bl23i-di-serv-02.diamond.ac.uk:8080/OAV.mjpg.mjpg"),
+            "OAV": ("BL23I-DI-OAV-01:CAM:ArrayRate_RBV", "http://bl23i-di-serv-04.diamond.ac.uk:8080/OAV.mjpg.mjpg"),
             "hotelView": ("BL23I-DI-CAM-09:CAM:ArrayRate_RBV", "http://bl23i-di-serv-01.diamond.ac.uk:8080/ECAM9.mjpg.mjpg"),
-            "inboardView": ("BL23I-DI-CAM-05:CAM:ArrayRate_RBV", "http://bl23i-di-serv-02.diamond.ac.uk:8080/ECAM5.mjpg.mjpg"),
-            "outboardView": ("BL23I-DI-CAM-03:CAM:ArrayRate_RBV", "http://bl23i-di-serv-02.diamond.ac.uk:8080/ECAM3.mjpg.mjpg"),
-            "d1": ("BL23I-DI-PHDGN-01:CAM:ArrayRate_RBV", "http://bl23i-di-serv-03.diamond.ac.uk:8082/D1.CAM.mjpg.mjpg"),
-            "d2": ("BL23I-DI-PHDGN-02:CAM:ArrayRate_RBV", "http://bl23i-di-serv-03.diamond.ac.uk:8082/D2.CAM.mjpg.mjpg"),
-            "d3": ("BL23I-DI-PHDGN-03:CAM:ArrayRate_RBV", "http://bl23i-di-serv-03.diamond.ac.uk:8082/D3.CAM.mjpg.mjpg"),
+            "inboardView": ("BL23I-DI-CAM-05:CAM:ArrayRate_RBV", "http://bl23i-di-serv-04.diamond.ac.uk:8080/ECAM5.mjpg.mjpg"),
+            "outboardView": ("BL23I-DI-CAM-03:CAM:ArrayRate_RBV", "http://bl23i-di-serv-04.diamond.ac.uk:8080/ECAM3.mjpg.mjpg"),
+            "d1": ("BL23I-DI-PHDGN-01:CAM:ArrayRate_RBV", "http://bl23i-di-serv-05.diamond.ac.uk:8082/D1.CAM.mjpg.mjpg"),
+            "d2": ("BL23I-DI-PHDGN-02:CAM:ArrayRate_RBV", "http://bl23i-di-serv-05.diamond.ac.uk:8082/D2.CAM.mjpg.mjpg"),
+            "d3": ("BL23I-DI-PHDGN-03:CAM:ArrayRate_RBV", "http://bl23i-di-serv-05.diamond.ac.uk:8082/D3.CAM.mjpg.mjpg"),
         }
 
     def run(self):

@@ -1,28 +1,44 @@
-from flask import Flask, Response
-import cv2
+"""
+Local MJPEG server that streams a solid red frame as a camera-offline placeholder.
+Binds to 127.0.0.1 only — this service is not intended to be network-accessible.
+"""
+
 import numpy as np
+import cv2
+from flask import Flask, Response
 
 app = Flask(__name__)
 
-def generate_red_frame():
-    red_image = np.zeros((480, 640, 3), dtype=np.uint8)
-    red_image[:] = (0, 0, 255) 
-    ret, jpeg = cv2.imencode('.jpg', red_image)
+# Generate the red frame once at startup — it never changes, so there's no
+# reason to re-encode it on every iteration of the stream loop.
+def _build_red_frame() -> bytes:
+    image = np.zeros((480, 640, 3), dtype=np.uint8)
+    image[:] = (0, 0, 255)  # BGR: solid red
+    ret, jpeg = cv2.imencode(".jpg", image)
     if not ret:
-        raise ValueError("Could not encode image")
-
+        raise RuntimeError("Failed to encode red placeholder frame")
     return jpeg.tobytes()
 
-def generate_mjpeg_stream():
+_RED_FRAME: bytes = _build_red_frame()
+
+
+def _generate_mjpeg_stream():
     while True:
-        frame = generate_red_frame()
-        yield (b'--frame\r\n'
-               b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n')
+        yield (
+            b"--frame\r\n"
+            b"Content-Type: image/jpeg\r\n\r\n" + _RED_FRAME + b"\r\n"
+        )
 
-@app.route('/redscreen.mjpg')
+
+@app.route("/redscreen.mjpg")
 def red_screen():
-    return Response(generate_mjpeg_stream(),
-                    mimetype='multipart/x-mixed-replace; boundary=frame')
+    return Response(
+        _generate_mjpeg_stream(),
+        mimetype="multipart/x-mixed-replace; boundary=frame",
+    )
 
-if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=8080, threaded=True)
+
+if __name__ == "__main__":
+    # Bind to localhost only — this server is a local placeholder, not a
+    # network service. Binding to 0.0.0.0 would expose it on the facility network.
+    app.run(host="127.0.0.1", port=8080, threaded=True)

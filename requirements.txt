@@ -1,4 +1,6 @@
 cothread
+flask
+numpy
 opencv-python-headless
 pyqt5
 pyqtwebengine
